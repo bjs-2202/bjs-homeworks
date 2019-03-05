@@ -17,14 +17,14 @@ function getResult(a,b,c){
     let x = [];
 	
     if(d == 0) {
-	x = -b / (2 * a);
-	console.log(`Дискриминант = ${d}, корень один. x = ${x}`);
+	    x[0] = -b / (2 * a);
+	console.log(`Дискриминант = ${d}, корень один. x = ${x[0]}`);
     } else if(d > 0) {
-	x[0] = (-b - Math.sqrt(d)) / (2 * a);
+	    x[0] = (-b - Math.sqrt(d)) / (2 * a);
         x[1] = (-b + Math.sqrt(d)) / (2 * a);
 	console.log(`Дискриминант = ${d}, существует 2 решения уравнения. x1 = ${x[0]}, x2 = ${x[1]}`);
     } else if(d < 0) {
-	console.log(`Дискриминант = ${d}, корней нету.`);
+	    console.log(`Дискриминант = ${d}, корней нету.`);
     }
 	
     return x;

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // lesson 1
 
@@ -45,3 +45,83 @@ function showSolutionsMessage(a, b, c) {
 showSolutionsMessage(1, 2, 3);
 showSolutionsMessage(7, 20, -3);
 showSolutionsMessage(2, 4, 2);
+
+// lesson 2
+
+function getPersonData(secretData) {
+	if (secretData.aaa == 0 && secretData.bbb == 0) {
+		return {
+			firstName: `Родриго`,
+			lastName: `Родриго`
+		}
+	} else if (secretData.aaa == 1 && secretData.bbb == 0) {
+		return {
+			firstName: `Эмильо`,
+			lastName: `Родриго`
+		}
+	} else if (secretData.aaa == 0 && secretData.bbb == 1) {
+		return {
+			firstName: `Родриго`,
+			lastName: `Эмильо`
+		}
+	} else if (secretData.aaa == 1 && secretData.bbb == 1) {
+		return {
+			firstName: `Эмильо`,
+			lastName: `Эмильо`
+		}
+	}
+}
+
+console.log(getPersonData({
+	aaa: 0,
+	bbb: 0
+}));
+console.log(getPersonData({
+	aaa: 1,
+	bbb: 0
+}));
+console.log(getPersonData({
+	aaa: 0,
+	bbb: 1
+}));
+console.log(getPersonData({
+	aaa: 1,
+	bbb: 1
+}));
+
+// lesson 3
+
+function getAverageScore(data) {
+	//console.log(data);
+	let object = {};
+	let average = 0;
+	let count = 0;
+	for (let key in data) {
+		//console.log(data[key]);
+		let sum = 0;
+		for (let i = 0; i < data[key].length; i++) {
+			sum = sum + data[key][i];
+			//console.log(sum);
+			object[key] = sum / data[key].length;
+			//console.log(object[key]);
+		}
+		average += object[key];
+		count++;
+		//console.log(average);
+	}
+	object.average = average / count;
+	//console.log(object);
+	return object;
+}
+
+console.log(getAverageScore({
+	algebra: [2, 4, 5, 2, 3, 4],
+	geometry: [2, 4, 5],
+	russian: [3, 3, 4, 5],
+	physics: [5, 5],
+	music: [2, 2, 6],
+	english: [4, 4, 3],
+	poetry: [5, 3, 4],
+	chemistry: [2],
+	french: [4, 4]
+}));

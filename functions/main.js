@@ -33,11 +33,11 @@ function showSolutionsMessage(a, b, c) {
 	console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
 	console.log(`Значение дискриминанта: ${result.D}`);
 
-	if (result.D < 0) {
+	if (!result.roots) {
 		console.log(`Уравнение не имеет вещественных корней.`);
-	} else if (result.D == 0) {
+	} else if (result.roots.length == 1) {
 		console.log(`Уравнение имеет один корень x1 = ${result.roots}.`);
-	} else if (result.D > 0) {
+	} else if (result.roots.length == 2) {
 		console.log(`Уравнение имеет два корня x1 = ${result.roots[0]}, x2 = ${result.roots[1]}`);
 	}
 }
@@ -49,7 +49,7 @@ showSolutionsMessage(2, 4, 2);
 // lesson 2
 
 function getPersonData(secretData) {
-	if (secretData.aaa == 0 && secretData.bbb == 0) {
+	/*if (secretData.aaa == 0 && secretData.bbb == 0) {
 		return {
 			firstName: `Родриго`,
 			lastName: `Родриго`
@@ -69,6 +69,13 @@ function getPersonData(secretData) {
 			firstName: `Эмильо`,
 			lastName: `Эмильо`
 		}
+	}*/
+	function foo(value) {
+		return (value == 1) ? `Эмильо` : `Родриго`;
+	}
+	return {
+		firstName: foo(secretData.aaa),
+		lastName: foo(secretData.bbb)
 	}
 }
 

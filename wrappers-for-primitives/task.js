@@ -13,7 +13,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
     // код для задачи №1 писать здесь
 	
-	const newDate = new Date();
+    const newDate = new Date();
     const data = new Date(date);
     const month = new Date((data.getFullYear() - newDate.getFullYear()) * 12 + (data.getMonth() + 1) - (newDate.getMonth() + 1));
   
@@ -34,15 +34,11 @@ function sayHello() {
 function getGreeting(name) {
     // код для задачи №2 писать здесь
 	
-	let newUser = name;
-	
-	//console.log(typeof(parseInt(name)));
-	
-	if (newUser === 'undefined' || newUser === 'null' || newUser === '') {
-		newUser = 'Аноним';
-	}
-	
-	let greeting = `Привет, мир! Меня зовут ${newUser}`;
-	
+    let newUser = name;
+    //console.log(typeof(parseInt(name)));
+    if (newUser === 'undefined' || newUser === 'null' || newUser === '') {
+	newUser = 'Аноним';
+    }
+    let greeting = `Привет, мир! Меня зовут ${newUser}`;
     return greeting;
 }

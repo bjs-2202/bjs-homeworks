@@ -12,7 +12,16 @@ function calculateMortgage() {
 function calculateTotalMortgage(percent, contribution, amount, date) {
 
     // код для задачи №1 писать здесь
-    //return totalAmount;
+	
+	const newDate = new Date();
+    const data = new Date(date);
+    const month = new Date((data.getFullYear() - newDate.getFullYear()) * 12 + (data.getMonth() + 1) - (newDate.getMonth() + 1));
+  
+    const monthlyInterestRate = (percent / 12) / 100;
+    const monthlyFee = amount * (monthlyInterestRate + monthlyInterestRate / ((Math.pow((1 + monthlyInterestRate), month) - 1)));
+    const totalAmount = monthlyFee * month + amount - contribution;
+    //console.log(totalAmount.toFixed(2));
+    return totalAmount.toFixed(2);
 }
 
 function sayHello() {
@@ -24,5 +33,16 @@ function sayHello() {
 
 function getGreeting(name) {
     // код для задачи №2 писать здесь
-    //return greeting;
+	
+	let newUser = name;
+	
+	//console.log(typeof(parseInt(name)));
+	
+	if (newUser === 'undefined' || newUser === 'null' || newUser === '') {
+		newUser = 'Аноним';
+	}
+	
+	let greeting = `Привет, мир! Меня зовут ${newUser}`;
+	
+    return greeting;
 }
